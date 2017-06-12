@@ -4,14 +4,14 @@
 # Applies system and application defaults.
 
 # EXECUTION
-printf "System - Disable boot sound effects\n"
-sudo nvram SystemAudioVolume=" "
+# printf "System - Disable boot sound effects\n"
+# sudo nvram SystemAudioVolume=" "
 
-printf "System - Reveal IP address, hostname, OS version, etc. when clicking the login window clock\n"
-sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo HostName
+# printf "System - Reveal IP address, hostname, OS version, etc. when clicking the login window clock\n"
+# sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo HostName
 
-printf "System - Disable automatic termination of inactive apps\n"
-defaults write NSGlobalDomain NSDisableAutomaticTermination -bool true
+# printf "System - Disable automatic termination of inactive apps\n"
+# defaults write NSGlobalDomain NSDisableAutomaticTermination -bool true
 
 printf "System - Expand save panel by default\n"
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
@@ -19,11 +19,11 @@ defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
 printf "System - Disable the 'Are you sure you want to open this application?' dialog\n"
 defaults write com.apple.LaunchServices LSQuarantine -bool false
 
-printf "System - Increase window resize speed for Cocoa applications\n"
-defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
+# printf "System - Increase window resize speed for Cocoa applications\n"
+# defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
 
-printf "System - Disable window resume system-wide\n"
-defaults write NSGlobalDomain NSQuitAlwaysKeepsWindows -bool false
+# printf "System - Disable window resume system-wide\n"
+# defaults write NSGlobalDomain NSQuitAlwaysKeepsWindows -bool false
 
 printf "System - Disable auto-correct\n"
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
@@ -41,8 +41,8 @@ defaults write com.apple.screensaver askForPasswordDelay -int 0
 printf "System - Avoid creating .DS_Store files on network volumes\n"
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 
-printf "System - Automatically restart if system freezes\n"
-systemsetup -setrestartfreeze on
+# printf "System - Automatically restart if system freezes\n"
+# systemsetup -setrestartfreeze on
 
 printf "System - Disable software updates\n"
 sudo softwareupdate --schedule off
@@ -56,29 +56,29 @@ defaults write com.apple.BezelServices kDimTime -int 300
 printf "Keyboard - Enable keyboard access for all controls\n"
 defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 
-printf "Keyboard - Set a fast keyboard repeat rate\n"
-defaults write NSGlobalDomain KeyRepeat -int 0
+# printf "Keyboard - Set a fast keyboard repeat rate\n"
+# defaults write NSGlobalDomain KeyRepeat -int 0
 
-printf "Keyboard - Disable press-and-hold for keys in favor of key repeat\n"
-defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
+# printf "Keyboard - Disable press-and-hold for keys in favor of key repeat\n"
+# defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 
-printf "Trackpad - Map bottom right corner to right-click\n"
-defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadCornerSecondaryClick -int 2
-defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightClick -bool true
-defaults -currentHost write NSGlobalDomain com.apple.trackpad.trackpadCornerClickBehavior -int 1
-defaults -currentHost write NSGlobalDomain com.apple.trackpad.enableSecondaryClick -bool true
+# printf "Trackpad - Map bottom right corner to right-click\n"
+# defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadCornerSecondaryClick -int 2
+# defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightClick -bool true
+# defaults -currentHost write NSGlobalDomain com.apple.trackpad.trackpadCornerClickBehavior -int 1
+# defaults -currentHost write NSGlobalDomain com.apple.trackpad.enableSecondaryClick -bool true
 
-printf "Trackpad - Enable tap to click for current user and the login screen\n"
-defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
-defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
-defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+# printf "Trackpad - Enable tap to click for current user and the login screen\n"
+# defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
+# defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+# defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 
-printf "Trackpad - Use CONTROL (^) with scroll to zoom\n"
-defaults write com.apple.universalaccess closeViewScrollWheelToggle -bool true
-defaults write com.apple.universalaccess HIDScrollZoomModifierMask -int 262144
+# printf "Trackpad - Use CONTROL (^) with scroll to zoom\n"
+# defaults write com.apple.universalaccess closeViewScrollWheelToggle -bool true
+# defaults write com.apple.universalaccess HIDScrollZoomModifierMask -int 262144
 
-printf "Trackpad - Follow keyboard focus while zoomed in\n"
-defaults write com.apple.universalaccess closeViewZoomFollowsFocus -bool true
+# printf "Trackpad - Follow keyboard focus while zoomed in\n"
+# defaults write com.apple.universalaccess closeViewZoomFollowsFocus -bool true
 
 printf "Bluetooth - Increase sound quality for headphones/headsets\n"
 defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40
@@ -213,91 +213,91 @@ defaults write com.apple.appstore WebKitDeveloperExtras -bool true
 printf "App Store - Enable Debug Menu in the Mac App Store\n"
 defaults write com.apple.appstore ShowDebugMenu -bool true
 
-printf "CCMenu - Add open source projects\n"
-defaults write net.sourceforge.cruisecontrol.CCMenu Projects '
-(
-  {
-    projectName = "bkuhlmann/auther";
-    serverUrl = "https://api.travis-ci.org/repos/bkuhlmann/auther/cc.xml";
-  },
-  {
-    projectName = "bkuhlmann/db";
-    serverUrl = "https://api.travis-ci.org/repos/bkuhlmann/db/cc.xml";
-  },
-  {
-    projectName = "bkuhlmann/flacsmith";
-    serverUrl = "https://api.travis-ci.org/repos/bkuhlmann/flacsmith/cc.xml";
-  },
-  {
-    projectName = "bkuhlmann/gemsmith";
-    serverUrl = "https://api.travis-ci.org/repos/bkuhlmann/gemsmith/cc.xml";
-  },
-  {
-    projectName = "bkuhlmann/lineage";
-    serverUrl = "https://api.travis-ci.org/repos/bkuhlmann/lineage/cc.xml";
-  },
-  {
-    projectName = "bkuhlmann/linguist";
-    serverUrl = "https://api.travis-ci.org/repos/bkuhlmann/linguist/cc.xml";
-  },
-  {
-    projectName = "bkuhlmann/milestoner";
-    serverUrl = "https://api.travis-ci.org/repos/bkuhlmann/milestoner/cc.xml";
-  },
-  {
-    projectName = "bkuhlmann/navigator";
-    serverUrl = "https://api.travis-ci.org/repos/bkuhlmann/navigator/cc.xml";
-  },
-  {
-    projectName = "bkuhlmann/pennyworth";
-    serverUrl = "https://api.travis-ci.org/repos/bkuhlmann/pennyworth/cc.xml";
-  },
-  {
-    projectName = "bkuhlmann/pragmater";
-    serverUrl = "https://api.travis-ci.org/repos/bkuhlmann/pragmater/cc.xml";
-  },
-  {
-    projectName = "bkuhlmann/prawn_plus";
-    serverUrl = "https://api.travis-ci.org/repos/bkuhlmann/prawn_plus/cc.xml";
-  },
-  {
-    projectName = "bkuhlmann/refinements";
-    serverUrl = "https://api.travis-ci.org/repos/bkuhlmann/refinements/cc.xml";
-  },
-  {
-    projectName = "bkuhlmann/resourcer";
-    serverUrl = "https://api.travis-ci.org/repos/bkuhlmann/resourcer/cc.xml";
-  },
-  {
-    projectName = "bkuhlmann/runcom";
-    serverUrl = "https://api.travis-ci.org/repos/bkuhlmann/runcom/cc.xml";
-  },
-  {
-    projectName = "bkuhlmann/sessioner";
-    serverUrl = "https://api.travis-ci.org/repos/bkuhlmann/sessioner/cc.xml";
-  },
-  {
-    projectName = "bkuhlmann/sorter";
-    serverUrl = "https://api.travis-ci.org/repos/bkuhlmann/sorter/cc.xml";
-  },
-  {
-    projectName = "bkuhlmann/sublime_text_kit";
-    serverUrl = "https://api.travis-ci.org/repos/bkuhlmann/sublime_text_kit/cc.xml";
-  },
-  {
-    projectName = "bkuhlmann/thor_plus";
-    serverUrl = "https://api.travis-ci.org/repos/bkuhlmann/thor_plus/cc.xml";
-  },
-  {
-    projectName = "bkuhlmann/tocer";
-    serverUrl = "https://api.travis-ci.org/repos/bkuhlmann/tocer/cc.xml";
-  },
-  {
-    projectName = "bkuhlmann/tokener";
-    serverUrl = "https://api.travis-ci.org/repos/bkuhlmann/tokener/cc.xml";
-  },
-  {
-    projectName = "bkuhlmann/versionaire";
-    serverUrl = "https://api.travis-ci.org/repos/bkuhlmann/versionaire/cc.xml";
-  }
-)'
+# printf "CCMenu - Add open source projects\n"
+# defaults write net.sourceforge.cruisecontrol.CCMenu Projects '
+# (
+#   {
+#     projectName = "bkuhlmann/auther";
+#     serverUrl = "https://api.travis-ci.org/repos/bkuhlmann/auther/cc.xml";
+#   },
+#   {
+#     projectName = "bkuhlmann/db";
+#     serverUrl = "https://api.travis-ci.org/repos/bkuhlmann/db/cc.xml";
+#   },
+#   {
+#     projectName = "bkuhlmann/flacsmith";
+#     serverUrl = "https://api.travis-ci.org/repos/bkuhlmann/flacsmith/cc.xml";
+#   },
+#   {
+#     projectName = "bkuhlmann/gemsmith";
+#     serverUrl = "https://api.travis-ci.org/repos/bkuhlmann/gemsmith/cc.xml";
+#   },
+#   {
+#     projectName = "bkuhlmann/lineage";
+#     serverUrl = "https://api.travis-ci.org/repos/bkuhlmann/lineage/cc.xml";
+#   },
+#   {
+#     projectName = "bkuhlmann/linguist";
+#     serverUrl = "https://api.travis-ci.org/repos/bkuhlmann/linguist/cc.xml";
+#   },
+#   {
+#     projectName = "bkuhlmann/milestoner";
+#     serverUrl = "https://api.travis-ci.org/repos/bkuhlmann/milestoner/cc.xml";
+#   },
+#   {
+#     projectName = "bkuhlmann/navigator";
+#     serverUrl = "https://api.travis-ci.org/repos/bkuhlmann/navigator/cc.xml";
+#   },
+#   {
+#     projectName = "bkuhlmann/pennyworth";
+#     serverUrl = "https://api.travis-ci.org/repos/bkuhlmann/pennyworth/cc.xml";
+#   },
+#   {
+#     projectName = "bkuhlmann/pragmater";
+#     serverUrl = "https://api.travis-ci.org/repos/bkuhlmann/pragmater/cc.xml";
+#   },
+#   {
+#     projectName = "bkuhlmann/prawn_plus";
+#     serverUrl = "https://api.travis-ci.org/repos/bkuhlmann/prawn_plus/cc.xml";
+#   },
+#   {
+#     projectName = "bkuhlmann/refinements";
+#     serverUrl = "https://api.travis-ci.org/repos/bkuhlmann/refinements/cc.xml";
+#   },
+#   {
+#     projectName = "bkuhlmann/resourcer";
+#     serverUrl = "https://api.travis-ci.org/repos/bkuhlmann/resourcer/cc.xml";
+#   },
+#   {
+#     projectName = "bkuhlmann/runcom";
+#     serverUrl = "https://api.travis-ci.org/repos/bkuhlmann/runcom/cc.xml";
+#   },
+#   {
+#     projectName = "bkuhlmann/sessioner";
+#     serverUrl = "https://api.travis-ci.org/repos/bkuhlmann/sessioner/cc.xml";
+#   },
+#   {
+#     projectName = "bkuhlmann/sorter";
+#     serverUrl = "https://api.travis-ci.org/repos/bkuhlmann/sorter/cc.xml";
+#   },
+#   {
+#     projectName = "bkuhlmann/sublime_text_kit";
+#     serverUrl = "https://api.travis-ci.org/repos/bkuhlmann/sublime_text_kit/cc.xml";
+#   },
+#   {
+#     projectName = "bkuhlmann/thor_plus";
+#     serverUrl = "https://api.travis-ci.org/repos/bkuhlmann/thor_plus/cc.xml";
+#   },
+#   {
+#     projectName = "bkuhlmann/tocer";
+#     serverUrl = "https://api.travis-ci.org/repos/bkuhlmann/tocer/cc.xml";
+#   },
+#   {
+#     projectName = "bkuhlmann/tokener";
+#     serverUrl = "https://api.travis-ci.org/repos/bkuhlmann/tokener/cc.xml";
+#   },
+#   {
+#     projectName = "bkuhlmann/versionaire";
+#     serverUrl = "https://api.travis-ci.org/repos/bkuhlmann/versionaire/cc.xml";
+#   }
+# )'
